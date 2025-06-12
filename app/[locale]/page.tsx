@@ -1,11 +1,19 @@
 import Hero from "@/components/Hero";
 import VillasSection from "@/components/VillasSection";
 
-export default function Home() {
+interface HomeProps {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export default async function Home({ params }: HomeProps) {
+  const { locale } = await params;
+  
   return (
     <div className="bg-[#141b22]">
       <Hero />
-      <VillasSection />
+      <VillasSection locale={locale} />
     </div>
   );
 }

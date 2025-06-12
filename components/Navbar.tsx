@@ -1,12 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
-import villasData from "@/data/villas.json";
+
+interface Villa {
+  id: number;
+  slug: string;
+  title: string;
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [villas, setVillas] = useState<Villa[]>([]);
+  const params = useParams();
+  const locale = params.locale as string || 'tr';
+  const t = useTranslations();
+
+  useEffect(() => {
+    fetchVillas();
+  }, []);
+
+  const fetchVillas = async () => {
+    try {
+      const response = await fetch('/api/admin/villas/list');
+      if (response.ok) {
+        const data = await response.json();
+        setVillas(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch villas:', error);
+    }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -14,7 +41,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#141b22] ">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#141b22]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <button
@@ -97,30 +124,33 @@ export default function Navbar() {
               <div>
                 <nav className="space-y-3">
                   <Link
-                    href="/"
+                    href={`/${locale}`}
                     className="block text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+                    onClick={toggleMenu}
                   >
-                    Ana Sayfa
+                    {t("navigation.home")}
                   </Link>
 
                   <div className="space-y-1">
-                    {villasData.villas.map((villa) => (
+                    {villas.map((villa) => (
                       <Link
                         key={villa.id}
-                        href={`/tr/villa/${villa.slug}`}
+                        href={`/${locale}/villa/${villa.slug}`}
                         className="block text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors text-sm"
+                        onClick={toggleMenu}
                       >
                         {villa.title}
                       </Link>
                     ))}
                   </div>
 
-                  <a
-                    href="#"
+                  <Link
+                    href={`/${locale}/contact`}
                     className="block text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+                    onClick={toggleMenu}
                   >
-                    İletişim
-                  </a>
+                    {t("navigation.contact")}
+                  </Link>
                 </nav>
               </div>
             </div>

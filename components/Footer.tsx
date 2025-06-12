@@ -1,6 +1,15 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const params = useParams();
+  const locale = params.locale as string || 'tr';
+  const t = useTranslations();
+
   return (
     <footer className="bg-[#0f1419] text-white">
       {/* Main Footer Content */}
@@ -18,8 +27,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Türkiye&apos;nin en güzel lokasyonlarında lüks villa kiralama hizmeti.
-              Unutulmaz tatil deneyimleri için bize katılın.
+              {t("footer.description")}
             </p>
             <div className="flex space-x-4">
               <a
@@ -67,48 +75,48 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-white mb-4">
-              Hızlı Bağlantılar
+              {t("footer.quickLinks")}
             </h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href={`/${locale}`}
                   className="text-gray-400 hover:text-[#24b6b6] transition-colors"
                 >
-                  Ana Sayfa
-                </a>
+                  {t("navigation.home")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href={`/${locale}#villas`}
                   className="text-gray-400 hover:text-[#24b6b6] transition-colors"
                 >
-                  Villalar
-                </a>
+                  {t("navigation.villas")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href={`/${locale}/about`}
                   className="text-gray-400 hover:text-[#24b6b6] transition-colors"
                 >
-                  Hakkımızda
-                </a>
+                  {t("navigation.about")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href={`/${locale}/contact`}
                   className="text-gray-400 hover:text-[#24b6b6] transition-colors"
                 >
-                  İletişim
-                </a>
+                  {t("navigation.contact")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href={`/${locale}/blog`}
                   className="text-gray-400 hover:text-[#24b6b6] transition-colors"
                 >
-                  Blog
-                </a>
+                  {t("navigation.blog")}
+                </Link>
               </li>
             </ul>
           </div>
@@ -118,7 +126,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white mb-4">İletişim</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              {t("footer.contact")}
+            </h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <svg
@@ -141,7 +151,7 @@ export default function Footer() {
                   />
                 </svg>
                 <p className="text-gray-400 text-sm">
-                  Bodrum Marina, Muğla, Türkiye
+                  {t("footer.address")}
                 </p>
               </div>
               <div className="flex items-center space-x-3">
@@ -158,7 +168,7 @@ export default function Footer() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <p className="text-gray-400 text-sm">+90 252 123 45 67</p>
+                <p className="text-gray-400 text-sm">{t("footer.phone")}</p>
               </div>
               <div className="flex items-center space-x-3">
                 <svg
@@ -174,7 +184,7 @@ export default function Footer() {
                     d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <p className="text-gray-400 text-sm">info@berceste.com</p>
+                <p className="text-gray-400 text-sm">{t("footer.email")}</p>
               </div>
             </div>
           </div>
@@ -186,27 +196,27 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © 2024 Berceste. Tüm hakları saklıdır.
+              {t("footer.copyright")}
             </p>
             <div className="flex space-x-6">
-              <a
-                href="#"
+              <Link
+                href={`/${locale}/privacy`}
                 className="text-gray-400 hover:text-[#24b6b6] transition-colors text-sm"
               >
-                Gizlilik Politikası
-              </a>
-              <a
-                href="#"
+                {t("footer.privacy")}
+              </Link>
+              <Link
+                href={`/${locale}/terms`}
                 className="text-gray-400 hover:text-[#24b6b6] transition-colors text-sm"
               >
-                Kullanım Şartları
-              </a>
-              <a
-                href="#"
+                {t("footer.terms")}
+              </Link>
+              <Link
+                href={`/${locale}/cookies`}
                 className="text-gray-400 hover:text-[#24b6b6] transition-colors text-sm"
               >
-                Çerez Politikası
-              </a>
+                {t("footer.cookies")}
+              </Link>
             </div>
           </div>
         </div>

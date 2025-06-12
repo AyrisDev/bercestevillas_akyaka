@@ -1,11 +1,20 @@
 import { notFound } from "next/navigation";
 import VillaGallery from "@/components/VillaGallery";
 import Hero from "@/components/Hero";
-import villasData from "@/data/villas.json";
+import { prisma } from "@/lib/prisma";
+import { getLocalizedVilla } from "@/lib/villa-content";
+import { getTranslations } from "next-intl/server";
 
-// Villa verilerini JSON'dan al
-const getVillaBySlug = (slug: string) => {
-  return villasData.villas.find(villa => villa.slug === slug);
+// Villa verilerini veritabanından al
+const getVillaBySlug = async (slug: string) => {
+  return await prisma.villa.findUnique({
+    where: { slug },
+    include: {
+      content: true,
+      nearbyPlaces: true,
+      reviews: true
+    }
+  });
 };
 
 interface VillaDetailPageProps {
@@ -16,16 +25,18 @@ interface VillaDetailPageProps {
 }
 
 export default async function VillaDetailPage({ params }: VillaDetailPageProps) {
-  const { slug } = await params;
-  const villa = getVillaBySlug(slug);
+  const { slug, locale } = await params;
+  const villaData = await getVillaBySlug(slug);
+  const t = await getTranslations();
 
-  if (!villa) {
+  if (!villaData) {
     notFound();
   }
 
+  const villa = getLocalizedVilla(villaData, locale);
+
   return (
     <div className="bg-[#141b22] min-h-screen mt-10">
-      ,
       <Hero />
       <div className="container mx-auto px-4 py-8 ">
         {/* Villa Title */}
@@ -54,7 +65,7 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
 
             {/* Amenities */}
             <section className="bg-white p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-black mb-4">Özellikler</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">{t("villa.amenities")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {villa.amenities.map((amenity, index) => (
                   <div key={index} className="flex items-center space-x-2">
@@ -65,16 +76,29 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
               </div>
             </section>
 
+            {/* Features */}
+            <section className="bg-white p-6 rounded-lg">
+              <h2 className="text-2xl font-bold text-black mb-4">{t("villa.features")}</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {villa.features.map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-[#24b6b6] rounded-full"></div>
+                    <span className="text-gray-700">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
             {/* Location */}
             <section className="bg-white p-6 rounded-lg">
               <h2 className="text-2xl font-bold text-black mb-4">
-                Konum & Yakınlık
+                {t("villa.proximity")}
               </h2>
               <h3 className="text-lg font-semibold text-gray-800 mb-3">
-                {villa.location.title}
+                {villa.locationTitle}
               </h3>
               <div className="space-y-2">
-                {villa.location.nearbyPlaces.map((place, index) => (
+                {villaData.nearbyPlaces.map((place, index) => (
                   <div
                     key={index}
                     className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0"
@@ -93,9 +117,9 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
           <div className="space-y-6">
             {/* Reviews */}
             <section className="bg-white p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-black mb-4">Yorumlar</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">{t("villa.reviews")}</h2>
               <div className="space-y-4">
-                {villa.reviews.map((review) => (
+                {villaData.reviews.map((review) => (
                   <div
                     key={review.id}
                     className="border-b border-gray-100 pb-4 last:border-b-0"
@@ -130,11 +154,36 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
               </div>
             </section>
 
+            {/* Villa Info */}
+            <section className="bg-white p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4">{t("villa.info")}</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">{t("villa.guests")}</span>
+                  <span className="font-semibold">{villaData.guests} {t("villa.person")}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">{t("villa.bedrooms")}</span>
+                  <span className="font-semibold">{villaData.bedrooms} {t("villa.room")}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">{t("villa.bathrooms")}</span>
+                  <span className="font-semibold">{villaData.bathrooms} {t("villa.bathroom")}</span>
+                </div>
+                <div className="flex justify-between border-t pt-3">
+                  <span className="text-gray-600">{t("villa.perNight")}</span>
+                  <span className="font-bold text-lg text-[#24b6b6]">
+                    {villaData.pricePerNight.toLocaleString()} {villaData.currency}
+                  </span>
+                </div>
+              </div>
+            </section>
+
             {/* Contact/Booking */}
             <section className="bg-[#24b6b6] p-6 rounded-lg text-white">
-              <h3 className="text-xl font-bold mb-4">Rezervasyon</h3>
+              <h3 className="text-xl font-bold mb-4">{t("villa.reservation")}</h3>
               <button className="w-full bg-white text-[#24b6b6] font-semibold py-3 px-4 rounded hover:bg-gray-100 transition-colors">
-                İletişim
+                {t("villa.contact")}
               </button>
             </section>
           </div>

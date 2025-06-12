@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface VillaCardProps {
   id: number;
+  slug: string;
   title: string;
   description: string;
   image: string;
@@ -9,11 +15,15 @@ interface VillaCardProps {
 }
 
 export default function VillaCard({
+  slug,
   title,
   description,
   image,
   index,
 }: VillaCardProps) {
+  const params = useParams();
+  const locale = params.locale as string || 'tr';
+  const t = useTranslations();
   // Index'e göre konum hesaplama - index * 10
   const translateValue = index * 10;
 
@@ -72,12 +82,12 @@ export default function VillaCard({
 
       <div className="relative z-5">
         {/* Button */}
-        <a 
-          href={`/tr/villa/${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
+        <Link 
+          href={`/${locale}/villa/${slug}`}
           className="block w-full bg-[#24b6b6] hover:bg-[#141b22] text-white font-semibold mb-4 py-4 px-8 text-start transition-colors duration-300 text-lg cursor-pointer"
         >
-          İncele
-        </a>
+          {t("villa.viewDetails")}
+        </Link>
       </div>
       {/* Bottom angled border - same as Hero */}
       <div

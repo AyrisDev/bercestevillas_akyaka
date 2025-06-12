@@ -11,7 +11,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+
 }
 
 model Villa {
@@ -46,8 +46,26 @@ model Villa {
   // Relations
   nearbyPlaces NearbyPlace[]
   reviews      VillaReview[]
+  content      VillaContent[]
   
   @@map("villas")
+}
+
+model VillaContent {
+  id               Int    @id @default(autoincrement())
+  villaId          Int
+  locale           String // 'tr', 'en'
+  title            String
+  description      String @db.Text
+  shortDescription String?
+  locationTitle    String
+  amenities        String[]
+  features         String[]
+  
+  villa Villa @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  
+  @@unique([villaId, locale])
+  @@map("villa_content")
 }
 
 model NearbyPlace {
@@ -68,9 +86,36 @@ model VillaReview {
   date    String
   villaId Int
   villa   Villa    @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  content ReviewContent[]
   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   
   @@map("villa_reviews")
+}
+
+model ReviewContent {
+  id       Int    @id @default(autoincrement())
+  reviewId Int
+  locale   String // 'tr', 'en'
+  comment  String @db.Text
+  
+  review VillaReview @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  
+  @@unique([reviewId, locale])
+  @@map("review_content")
+}
+
+model AdminUser {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  isActive  Boolean  @default(true)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("admin_users")
 }
