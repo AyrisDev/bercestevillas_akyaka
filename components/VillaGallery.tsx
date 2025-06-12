@@ -49,7 +49,7 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, prevImage, nextImage]);
 
   // Prevent body scroll when lightbox is open
   useEffect(() => {

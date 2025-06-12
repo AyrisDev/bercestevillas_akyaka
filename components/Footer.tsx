@@ -18,7 +18,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Türkiye'nin en güzel lokasyonlarında lüks villa kiralama hizmeti.
+              Türkiye&apos;nin en güzel lokasyonlarında lüks villa kiralama hizmeti.
               Unutulmaz tatil deneyimleri için bize katılın.
             </p>
             <div className="flex space-x-4">

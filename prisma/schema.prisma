@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Villa {
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String   @unique
+  description String   @db.Text
+  shortDescription String?
+  images      String[]
+  mainImage   String
+  amenities   String[]
+  features    String[]
+  status      String   @default("available")
+  
+  // Location
+  locationTitle String
+  locationCity  String
+  
+  // Capacity
+  guests    Int
+  bedrooms  Int
+  bathrooms Int
+  
+  // Pricing
+  pricePerNight Int
+  currency      String @default("TRY")
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  nearbyPlaces NearbyPlace[]
+  reviews      VillaReview[]
+  
+  @@map("villas")
+}
+
+model NearbyPlace {
+  id       Int    @id @default(autoincrement())
+  name     String
+  distance String
+  villaId  Int
+  villa    Villa  @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  
+  @@map("nearby_places")
+}
+
+model VillaReview {
+  id      Int      @id @default(autoincrement())
+  name    String
+  rating  Int
+  comment String   @db.Text
+  date    String
+  villaId Int
+  villa   Villa    @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("villa_reviews")
+}

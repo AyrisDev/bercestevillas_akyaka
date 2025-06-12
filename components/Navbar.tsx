@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 import villasData from "@/data/villas.json";
 
@@ -95,22 +96,22 @@ export default function Navbar() {
             <div className="space-y-6">
               <div>
                 <nav className="space-y-3">
-                  <a
+                  <Link
                     href="/"
                     className="block text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
                   >
                     Ana Sayfa
-                  </a>
+                  </Link>
 
                   <div className="space-y-1">
                     {villasData.villas.map((villa) => (
-                      <a
+                      <Link
                         key={villa.id}
                         href={`/tr/villa/${villa.slug}`}
                         className="block text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors text-sm"
                       >
                         {villa.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
 

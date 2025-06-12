@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { useTranslations } from "next-intl";
 import VillaGallery from "@/components/VillaGallery";
 import Hero from "@/components/Hero";
 import villasData from "@/data/villas.json";
@@ -10,14 +9,14 @@ const getVillaBySlug = (slug: string) => {
 };
 
 interface VillaDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }
 
-export default function VillaDetailPage({ params }: VillaDetailPageProps) {
-  const { slug } = params;
+export default async function VillaDetailPage({ params }: VillaDetailPageProps) {
+  const { slug } = await params;
   const villa = getVillaBySlug(slug);
 
   if (!villa) {
