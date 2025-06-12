@@ -1,0 +1,473 @@
+{
+  "villas": [
+    {
+      "id": 1,
+      "title": "Modern Villa Antalya",
+      "slug": "modern-villa-antalya",
+      "description": "Antalya'nın en güzel bölgesinde, denize sıfır modern villa. Özel havuz, bahçe ve muhteşem deniz manzarası ile unutulmaz tatil deneyimi.",
+      "shortDescription": "Denize sıfır modern villa, özel havuz ve bahçe ile",
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&h=600&fit=crop"
+      ],
+      "mainImage": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+      "amenities": [
+        "Özel Havuz",
+        "Deniz Manzarası",
+        "Klima",
+        "WiFi",
+        "Mutfak",
+        "Barbekü",
+        "Otopark",
+        "Bahçe"
+      ],
+      "location": {
+        "title": "Antalya Merkez",
+        "city": "Antalya",
+        "nearbyPlaces": [
+          { "name": "Plaj", "distance": "50m" },
+          { "name": "Market", "distance": "200m" },
+          { "name": "Restoran", "distance": "300m" },
+          { "name": "Havaalanı", "distance": "15km" }
+        ]
+      },
+      "capacity": {
+        "guests": 8,
+        "bedrooms": 4,
+        "bathrooms": 3
+      },
+      "price": {
+        "perNight": 1500,
+        "currency": "TRY"
+      },
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Mehmet K.",
+          "rating": 5,
+          "comment": "Muhteşem bir villa, her şey harika! Deniz manzarası ve temizlik harikaydı.",
+          "date": "2024-01-15"
+        },
+        {
+          "id": 2,
+          "name": "Ayşe D.",
+          "rating": 4,
+          "comment": "Çok güzel bir konum, ailece harika zaman geçirdik. Özellikle havuz çok keyifliydi.",
+          "date": "2024-01-10"
+        },
+        {
+          "id": 3,
+          "name": "Emre S.",
+          "rating": 5,
+          "comment": "Mükemmel bir tatil geçirdik. Villa çok temiz ve konforlu, denize çok yakın.",
+          "date": "2024-01-05"
+        }
+      ],
+      "features": [
+        "Denize sıfır",
+        "Özel plaj",
+        "24/7 güvenlik",
+        "Temizlik servisi"
+      ],
+      "status": "available"
+    },
+    {
+      "id": 2,
+      "title": "Luxury Villa Bodrum",
+      "slug": "luxury-villa-bodrum",
+      "description": "Bodrum'un kalbinde lüks villa. Panoramik Ege manzarası, infinity havuz ve premium donanım ile unutulmaz bir tatil deneyimi yaşayın.",
+      "shortDescription": "Panoramik Ege manzarası, infinity havuz ve lüks donanım",
+      "images": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop"
+      ],
+      "mainImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+      "amenities": [
+        "Infinity Havuz",
+        "Ege Manzarası",
+        "Jakuzi",
+        "WiFi",
+        "Premium Mutfak",
+        "Barbekü",
+        "Valet Parking",
+        "Spa"
+      ],
+      "location": {
+        "title": "Bodrum Merkez",
+        "city": "Bodrum",
+        "nearbyPlaces": [
+          { "name": "Marina", "distance": "100m" },
+          { "name": "Beach Club", "distance": "150m" },
+          { "name": "Restoran", "distance": "50m" },
+          { "name": "Havaalanı", "distance": "45km" }
+        ]
+      },
+      "capacity": {
+        "guests": 10,
+        "bedrooms": 5,
+        "bathrooms": 4
+      },
+      "price": {
+        "perNight": 2500,
+        "currency": "TRY"
+      },
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Can T.",
+          "rating": 5,
+          "comment": "Lüks ve konfor bir arada. Infinity havuz muhteşem, manzara harika!",
+          "date": "2024-01-20"
+        },
+        {
+          "id": 2,
+          "name": "Zeynep A.",
+          "rating": 5,
+          "comment": "Bodrum'da kaldığım en güzel villa. Premium donanım ve mükemmel hizmet.",
+          "date": "2024-01-18"
+        }
+      ],
+      "features": [
+        "Panoramik manzara",
+        "Özel şef hizmeti",
+        "Concierge",
+        "Spa servisi"
+      ],
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "title": "Seaside Villa Kas",
+      "slug": "seaside-villa-kas",
+      "description": "Kaş'ın eşsiz doğasında, Akdeniz'e nazır özel villa. Sakin bir tatil için ideal, doğa ile iç içe lüks yaşam alanı.",
+      "shortDescription": "Akdeniz manzarası, doğa ile iç içe sakin tatil",
+      "images": [
+        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop"
+      ],
+      "mainImage": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+      "amenities": [
+        "Özel Havuz",
+        "Akdeniz Manzarası",
+        "Klima",
+        "WiFi",
+        "Barbekü Alanı",
+        "Bahçe",
+        "Otopark",
+        "Deniz Kayağı"
+      ],
+      "location": {
+        "title": "Kaş Merkez",
+        "city": "Kaş",
+        "nearbyPlaces": [
+          { "name": "Kaş Limanı", "distance": "500m" },
+          { "name": "Antik Tiyatro", "distance": "800m" },
+          { "name": "Market", "distance": "300m" },
+          { "name": "Dalaman Havaalanı", "distance": "120km" }
+        ]
+      },
+      "capacity": {
+        "guests": 6,
+        "bedrooms": 3,
+        "bathrooms": 2
+      },
+      "price": {
+        "perNight": 1200,
+        "currency": "TRY"
+      },
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Murat Y.",
+          "rating": 4,
+          "comment": "Kaş'ın güzelliği ile villa'nın konforu birleşince mükemmel oldu. Çok sakin bir tatil.",
+          "date": "2024-01-12"
+        },
+        {
+          "id": 2,
+          "name": "Selin K.",
+          "rating": 5,
+          "comment": "Doğa ile iç içe harika bir tatil. Villa çok temiz ve konforlu.",
+          "date": "2024-01-08"
+        }
+      ],
+      "features": [
+        "Doğa ile iç içe",
+        "Sakin konum",
+        "Trekking rotaları",
+        "Dalış imkanı"
+      ],
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "title": "Seaside Villa Kas",
+      "slug": "seaside-villa-kas",
+      "description": "Kaş'ın eşsiz doğasında, Akdeniz'e nazır özel villa. Sakin bir tatil için ideal, doğa ile iç içe lüks yaşam alanı.",
+      "shortDescription": "Akdeniz manzarası, doğa ile iç içe sakin tatil",
+      "images": [
+        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop"
+      ],
+      "mainImage": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+      "amenities": [
+        "Özel Havuz",
+        "Akdeniz Manzarası",
+        "Klima",
+        "WiFi",
+        "Barbekü Alanı",
+        "Bahçe",
+        "Otopark",
+        "Deniz Kayağı"
+      ],
+      "location": {
+        "title": "Kaş Merkez",
+        "city": "Kaş",
+        "nearbyPlaces": [
+          { "name": "Kaş Limanı", "distance": "500m" },
+          { "name": "Antik Tiyatro", "distance": "800m" },
+          { "name": "Market", "distance": "300m" },
+          { "name": "Dalaman Havaalanı", "distance": "120km" }
+        ]
+      },
+      "capacity": {
+        "guests": 6,
+        "bedrooms": 3,
+        "bathrooms": 2
+      },
+      "price": {
+        "perNight": 1200,
+        "currency": "TRY"
+      },
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Murat Y.",
+          "rating": 4,
+          "comment": "Kaş'ın güzelliği ile villa'nın konforu birleşince mükemmel oldu. Çok sakin bir tatil.",
+          "date": "2024-01-12"
+        },
+        {
+          "id": 2,
+          "name": "Selin K.",
+          "rating": 5,
+          "comment": "Doğa ile iç içe harika bir tatil. Villa çok temiz ve konforlu.",
+          "date": "2024-01-08"
+        }
+      ],
+      "features": [
+        "Doğa ile iç içe",
+        "Sakin konum",
+        "Trekking rotaları",
+        "Dalış imkanı"
+      ],
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "title": "Seaside Villa Kas",
+      "slug": "seaside-villa-kas",
+      "description": "Kaş'ın eşsiz doğasında, Akdeniz'e nazır özel villa. Sakin bir tatil için ideal, doğa ile iç içe lüks yaşam alanı.",
+      "shortDescription": "Akdeniz manzarası, doğa ile iç içe sakin tatil",
+      "images": [
+        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop"
+      ],
+      "mainImage": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+      "amenities": [
+        "Özel Havuz",
+        "Akdeniz Manzarası",
+        "Klima",
+        "WiFi",
+        "Barbekü Alanı",
+        "Bahçe",
+        "Otopark",
+        "Deniz Kayağı"
+      ],
+      "location": {
+        "title": "Kaş Merkez",
+        "city": "Kaş",
+        "nearbyPlaces": [
+          { "name": "Kaş Limanı", "distance": "500m" },
+          { "name": "Antik Tiyatro", "distance": "800m" },
+          { "name": "Market", "distance": "300m" },
+          { "name": "Dalaman Havaalanı", "distance": "120km" }
+        ]
+      },
+      "capacity": {
+        "guests": 6,
+        "bedrooms": 3,
+        "bathrooms": 2
+      },
+      "price": {
+        "perNight": 1200,
+        "currency": "TRY"
+      },
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Murat Y.",
+          "rating": 4,
+          "comment": "Kaş'ın güzelliği ile villa'nın konforu birleşince mükemmel oldu. Çok sakin bir tatil.",
+          "date": "2024-01-12"
+        },
+        {
+          "id": 2,
+          "name": "Selin K.",
+          "rating": 5,
+          "comment": "Doğa ile iç içe harika bir tatil. Villa çok temiz ve konforlu.",
+          "date": "2024-01-08"
+        }
+      ],
+      "features": [
+        "Doğa ile iç içe",
+        "Sakin konum",
+        "Trekking rotaları",
+        "Dalış imkanı"
+      ],
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "title": "Seaside Villa Kas",
+      "slug": "seaside-villa-kas",
+      "description": "Kaş'ın eşsiz doğasında, Akdeniz'e nazır özel villa. Sakin bir tatil için ideal, doğa ile iç içe lüks yaşam alanı.",
+      "shortDescription": "Akdeniz manzarası, doğa ile iç içe sakin tatil",
+      "images": [
+        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop"
+      ],
+      "mainImage": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+      "amenities": [
+        "Özel Havuz",
+        "Akdeniz Manzarası",
+        "Klima",
+        "WiFi",
+        "Barbekü Alanı",
+        "Bahçe",
+        "Otopark",
+        "Deniz Kayağı"
+      ],
+      "location": {
+        "title": "Kaş Merkez",
+        "city": "Kaş",
+        "nearbyPlaces": [
+          { "name": "Kaş Limanı", "distance": "500m" },
+          { "name": "Antik Tiyatro", "distance": "800m" },
+          { "name": "Market", "distance": "300m" },
+          { "name": "Dalaman Havaalanı", "distance": "120km" }
+        ]
+      },
+      "capacity": {
+        "guests": 6,
+        "bedrooms": 3,
+        "bathrooms": 2
+      },
+      "price": {
+        "perNight": 1200,
+        "currency": "TRY"
+      },
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Murat Y.",
+          "rating": 4,
+          "comment": "Kaş'ın güzelliği ile villa'nın konforu birleşince mükemmel oldu. Çok sakin bir tatil.",
+          "date": "2024-01-12"
+        },
+        {
+          "id": 2,
+          "name": "Selin K.",
+          "rating": 5,
+          "comment": "Doğa ile iç içe harika bir tatil. Villa çok temiz ve konforlu.",
+          "date": "2024-01-08"
+        }
+      ],
+      "features": [
+        "Doğa ile iç içe",
+        "Sakin konum",
+        "Trekking rotaları",
+        "Dalış imkanı"
+      ],
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "title": "Seaside Villa Kas",
+      "slug": "seaside-villa-kas",
+      "description": "Kaş'ın eşsiz doğasında, Akdeniz'e nazır özel villa. Sakin bir tatil için ideal, doğa ile iç içe lüks yaşam alanı.",
+      "shortDescription": "Akdeniz manzarası, doğa ile iç içe sakin tatil",
+      "images": [
+        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop"
+      ],
+      "mainImage": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+      "amenities": [
+        "Özel Havuz",
+        "Akdeniz Manzarası",
+        "Klima",
+        "WiFi",
+        "Barbekü Alanı",
+        "Bahçe",
+        "Otopark",
+        "Deniz Kayağı"
+      ],
+      "location": {
+        "title": "Kaş Merkez",
+        "city": "Kaş",
+        "nearbyPlaces": [
+          { "name": "Kaş Limanı", "distance": "500m" },
+          { "name": "Antik Tiyatro", "distance": "800m" },
+          { "name": "Market", "distance": "300m" },
+          { "name": "Dalaman Havaalanı", "distance": "120km" }
+        ]
+      },
+      "capacity": {
+        "guests": 6,
+        "bedrooms": 3,
+        "bathrooms": 2
+      },
+      "price": {
+        "perNight": 1200,
+        "currency": "TRY"
+      },
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Murat Y.",
+          "rating": 4,
+          "comment": "Kaş'ın güzelliği ile villa'nın konforu birleşince mükemmel oldu. Çok sakin bir tatil.",
+          "date": "2024-01-12"
+        },
+        {
+          "id": 2,
+          "name": "Selin K.",
+          "rating": 5,
+          "comment": "Doğa ile iç içe harika bir tatil. Villa çok temiz ve konforlu.",
+          "date": "2024-01-08"
+        }
+      ],
+      "features": [
+        "Doğa ile iç içe",
+        "Sakin konum",
+        "Trekking rotaları",
+        "Dalış imkanı"
+      ],
+      "status": "available"
+    }
+  ]
+}
