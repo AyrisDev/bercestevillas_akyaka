@@ -1,0 +1,12 @@
+{
+  "installCommand": "npm ci --prefer-offline --no-audit --progress=false",
+  "buildCommand": "npm run build",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NPM_CONFIG_REGISTRY": "https://registry.npmjs.org/"
+  }
+}
