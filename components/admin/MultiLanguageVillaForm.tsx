@@ -327,25 +327,6 @@ export default function MultiLanguageVillaForm({
           />
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-black mb-2">
-            Gecelik Fiyat
-          </label>
-          <input
-            type="number"
-            min="0"
-            value={formData.pricePerNight}
-            onChange={(e) =>
-              setFormData((prev) => ({
-                ...prev,
-                pricePerNight: parseInt(e.target.value),
-              }))
-            }
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
-            required
-          />
-        </div>
-
         <div className="md:col-span-2">
           <label className="block text-sm font-medium text-black mb-2">
             Ana Resim URL

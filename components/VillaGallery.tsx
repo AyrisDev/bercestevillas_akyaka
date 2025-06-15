@@ -37,7 +37,7 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isLightboxOpen) return;
-      
+
       if (e.key === "Escape") {
         closeLightbox();
       } else if (e.key === "ArrowLeft") {
@@ -58,7 +58,7 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
     } else {
       document.body.style.overflow = "unset";
     }
-    
+
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -68,18 +68,19 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
     <>
       <div className="relative">
         {/* Main Image */}
-        <div 
-          className="relative h-96 md:h-[500px] overflow-hidden rounded-lg bg-gray-200 cursor-pointer"
+        <div
+          className="relative aspect-[4/3] md:aspect-[16/10] min-h-[300px] overflow-hidden rounded-lg bg-gray-200 cursor-pointer"
           onClick={() => openLightbox(currentImageIndex)}
         >
           <Image
             src={images[currentImageIndex]}
             alt={`${title} - ${currentImageIndex + 1}`}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
             className="object-cover hover:scale-105 transition-transform duration-300"
             priority
           />
-          
+
           {/* Navigation Arrows */}
           {images.length > 1 && (
             <>
@@ -91,11 +92,21 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all duration-200"
                 aria-label="Previous image"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
-              
+
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -104,8 +115,18 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all duration-200"
                 aria-label="Next image"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </>
@@ -118,8 +139,18 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
 
           {/* Expand Icon */}
           <div className="absolute top-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded-full">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+              />
             </svg>
           </div>
         </div>
@@ -130,8 +161,8 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
             {images.map((image, index) => (
               <button
                 key={index}
-                onClick={() => openLightbox(index)}
-                className={`relative flex-shrink-0 w-20 h-16 rounded-md overflow-hidden border-2 transition-all duration-200 hover:scale-105 ${
+                onClick={() => goToImage(index)}
+                className={`relative flex-shrink-0 w-24 h-16 rounded-md overflow-hidden border-2 transition-all duration-200 hover:scale-105 ${
                   currentImageIndex === index
                     ? "border-[#24b6b6] opacity-100"
                     : "border-gray-300 opacity-70 hover:opacity-100"
@@ -151,7 +182,7 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
 
       {/* Lightbox */}
       {isLightboxOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
           onClick={closeLightbox}
         >
@@ -162,13 +193,23 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
               className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2 transition-colors"
               aria-label="Close lightbox"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
             {/* Main Lightbox Image */}
-            <div 
+            <div
               className="relative w-full h-full max-w-4xl max-h-[80vh]"
               onClick={(e) => e.stopPropagation()}
             >
@@ -192,11 +233,21 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200"
                   aria-label="Previous image"
                 >
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg
+                    className="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
-                
+
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -205,8 +256,18 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200"
                   aria-label="Next image"
                 >
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </>
@@ -226,7 +287,7 @@ export default function VillaGallery({ images, title }: VillaGalleryProps) {
                     e.stopPropagation();
                     goToImage(index);
                   }}
-                  className={`relative flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2 transition-all duration-200 ${
+                  className={`relative flex-shrink-0 w-20 h-14 rounded-md overflow-hidden border-2 transition-all duration-200 ${
                     currentImageIndex === index
                       ? "border-[#24b6b6] opacity-100"
                       : "border-white border-opacity-50 opacity-70 hover:opacity-100"

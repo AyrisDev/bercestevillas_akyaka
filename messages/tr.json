@@ -168,9 +168,240 @@
     "address": "Bodrum Marina, Muğla, Türkiye",
     "phone": "+90 252 123 45 67",
     "email": "info@berceste.com",
-    "copyright": "© 2024 Berceste. Tüm hakları saklıdır.",
+    "copyright": "© 2025 Berceste. Tüm hakları saklıdır.",
     "privacy": "Gizlilik Politikası",
     "terms": "Kullanım Şartları",
-    "cookies": "Çerez Politikası"
+    "cookies": "Çerez Politikası",
+    "developer": "Geliştirici",
+    "developedBy": "tarafından geliştirilmiştir"
+  },
+  "privacy": {
+    "title": "Gizlilik Politikası",
+    "lastUpdated": "Son güncelleme",
+    "intro": {
+      "title": "Giriş",
+      "content": "Bu Gizlilik Politikası, Berceste olarak kişisel verilerinizi nasıl topladığımızı, kullandığımızı, koruduğumuzuz ve paylaştığımızı açıklar."
+    },
+    "collection": {
+      "title": "Topladığımız Bilgiler",
+      "content": "Hizmetlerimizi sunabilmek için aşağıdaki bilgileri toplayabiliriz:",
+      "personal": "Kişisel bilgiler (ad, soyad, e-posta adresi, telefon numarası)",
+      "contact": "İletişim bilgileri",
+      "reservation": "Rezervasyon ve ödeme bilgileri",
+      "technical": "Teknik veriler (IP adresi, tarayıcı türü, cihaz bilgileri)"
+    },
+    "usage": {
+      "title": "Bilgilerin Kullanımı",
+      "content": "Topladığımız bilgileri şu amaçlarla kullanırız:",
+      "services": "Hizmetlerimizi sunmak ve geliştirmek",
+      "communication": "Sizinle iletişim kurmak",
+      "improvement": "Web sitemizi ve deneyiminizi iyileştirmek",
+      "legal": "Yasal yükümlülüklerimizi yerine getirmek"
+    },
+    "sharing": {
+      "title": "Bilgi Paylaşımı",
+      "content": "Kişisel bilgilerinizi yasal zorunluluklar dışında üçüncü taraflarla paylaşmayız."
+    },
+    "security": {
+      "title": "Güvenlik",
+      "content": "Kişisel verilerinizin güvenliği için uygun teknik ve organizasyonel önlemler alırız."
+    },
+    "rights": {
+      "title": "Haklarınız",
+      "content": "KVKK kapsamında aşağıdaki haklara sahipsiniz:",
+      "access": "Kişisel verilerinize erişim hakkı",
+      "correction": "Yanlış verilerin düzeltilmesini talep etme hakkı",
+      "deletion": "Kişisel verilerinizin silinmesini talep etme hakkı",
+      "portability": "Veri taşınabilirliği hakkı"
+    },
+    "cookies": {
+      "title": "Çerezler",
+      "content": "Web sitemizde çerezler kullanıyoruz. Detaylı bilgi için Çerez Politikamızı inceleyebilirsiniz."
+    },
+    "contact": {
+      "title": "İletişim",
+      "content": "Gizlilik politikamız hakkında sorularınız için bizimle iletişime geçebilirsiniz:"
+    },
+    "changes": {
+      "title": "Değişiklikler",
+      "content": "Bu gizlilik politikasında değişiklik yapma hakkımızı saklı tutarız. Değişiklikler web sitesinde yayınlandığı tarihte yürürlüğe girer."
+    }
+  },
+  "terms": {
+    "title": "Kullanım Şartları",
+    "lastUpdated": "Son güncelleme",
+    "acceptance": {
+      "title": "Şartların Kabulü",
+      "content": "Bu web sitesini kullanarak, aşağıdaki kullanım şartlarını kabul etmiş sayılırsınız."
+    },
+    "services": {
+      "title": "Hizmetlerimiz",
+      "content": "Berceste olarak aşağıdaki hizmetleri sunmaktayız:",
+      "reservation": "Villa rezervasyon hizmeti",
+      "information": "Villa ve konaklama bilgileri",
+      "support": "Müşteri destek hizmetleri"
+    },
+    "user": {
+      "title": "Kullanıcı Sorumlulukları",
+      "content": "Web sitemizi kullanırken aşağıdaki kurallara uymanız gerekmektedir:",
+      "accurate": "Doğru ve güncel bilgi vermek",
+      "lawful": "Yasal olmayan faaliyetlerde bulunmamak",
+      "respectful": "Diğer kullanıcılara saygılı davranmak",
+      "security": "Hesap güvenliğinizi korumak"
+    },
+    "reservations": {
+      "title": "Rezervasyon Koşulları",
+      "content": "Villa rezervasyonları için aşağıdaki koşullar geçerlidir:",
+      "policy": {
+        "title": "Rezervasyon Politikası:",
+        "confirmation": "Rezervasyonlar onay sonrası kesinleşir",
+        "payment": "Ödeme koşulları rezervasyon sırasında belirtilir",
+        "cancellation": "İptal koşulları aşağıda detaylandırılmıştır",
+        "checkin": "Giriş ve çıkış saatleri villa bazında değişiklik gösterebilir"
+      }
+    },
+    "payment": {
+      "title": "Ödeme Koşulları",
+      "content": "Ödeme ile ilgili koşullar:",
+      "methods": "Kabul edilen ödeme yöntemleri rezervasyon sırasında belirtilir",
+      "currency": "Fiyatlar Türk Lirası cinsindendir",
+      "taxes": "Vergiler fiyatlara dahildir",
+      "refunds": "İade koşulları iptal politikasına tabidir"
+    },
+    "cancellation": {
+      "title": "İptal Politikası",
+      "content": "Rezervasyon iptali için aşağıdaki koşullar geçerlidir:",
+      "before30": "30 gün öncesine kadar: %100 iade",
+      "before15": "15-30 gün arası: %50 iade",
+      "before7": "7-15 gün arası: %25 iade",
+      "after7": "7 günden az: İade yapılmaz"
+    },
+    "property": {
+      "title": "Mülk Kullanım Kuralları",
+      "content": "Villa kullanımı sırasında aşağıdaki kurallara uyulmalıdır:",
+      "respect": "Mülke ve çevreye saygılı davranmak",
+      "damage": "Hasar durumunda bildirim yapmak",
+      "rules": "Villa özel kurallarına uymak",
+      "capacity": "Belirtilen kapasite limitlerini aşmamak"
+    },
+    "liability": {
+      "title": "Sorumluluk Sınırlaması",
+      "content": "Berceste, hizmet kesintileri, veri kaybı veya dolaylı zararlardan sorumlu değildir."
+    },
+    "intellectual": {
+      "title": "Fikri Mülkiyet",
+      "content": "Web sitesindeki tüm içerik ve görseller Berceste'nin fikri mülkiyetidir."
+    },
+    "termination": {
+      "title": "Hizmet Sonlandırma",
+      "content": "Berceste, kullanım şartlarının ihlali durumunda hizmeti sonlandırma hakkını saklı tutar."
+    },
+    "governing": {
+      "title": "Geçerli Hukuk",
+      "content": "Bu şartlar Türkiye Cumhuriyeti hukukuna tabidir."
+    },
+    "contact": {
+      "title": "İletişim",
+      "content": "Kullanım şartları hakkında sorularınız için:"
+    }
+  },
+  "cookies": {
+    "title": "Çerez Politikası",
+    "lastUpdated": "Son güncelleme",
+    "intro": {
+      "title": "Çerezler Hakkında",
+      "content": "Bu politika, web sitemizde çerezlerin nasıl kullanıldığını açıklar."
+    },
+    "what": {
+      "title": "Çerez Nedir?",
+      "content": "Çerezler, web sitesini ziyaret ettiğinizde cihazınızda saklanan küçük metin dosyalarıdır."
+    },
+    "types": {
+      "title": "Çerez Türleri",
+      "essential": {
+        "title": "Zorunlu Çerezler",
+        "content": "Web sitesinin çalışması için gerekli çerezler:",
+        "session": "Oturum çerezleri",
+        "security": "Güvenlik çerezleri",
+        "preferences": "Tercih çerezleri"
+      },
+      "performance": {
+        "title": "Performans Çerezleri",
+        "content": "Web sitesinin performansını ölçmek için kullanılır:",
+        "analytics": "Analitik veriler",
+        "usage": "Kullanım istatistikleri",
+        "optimization": "Site optimizasyonu"
+      },
+      "functional": {
+        "title": "Fonksiyonel Çerezler",
+        "content": "Gelişmiş özellikler sağlar:",
+        "language": "Dil tercihleri",
+        "remember": "Tercihlerinizi hatırlama",
+        "personalization": "Kişiselleştirme"
+      },
+      "marketing": {
+        "title": "Pazarlama Çerezleri",
+        "content": "Reklamlar ve pazarlama için kullanılır:",
+        "tracking": "Kullanıcı takibi",
+        "advertising": "Hedefli reklamlar",
+        "social": "Sosyal medya entegrasyonu"
+      }
+    },
+    "thirdparty": {
+      "title": "Üçüncü Taraf Çerezleri",
+      "content": "Aşağıdaki üçüncü taraf servislerinin çerezlerini kullanıyoruz:",
+      "analytics": "Web sitesi analitikleri için",
+      "maps": "Harita hizmetleri için",
+      "facebook": "Sosyal medya ve reklamlar için",
+      "whatsapp": "İletişim widget'ı için"
+    },
+    "manage": {
+      "title": "Çerez Yönetimi",
+      "content": "Çerezleri yönetmek için tarayıcı ayarlarınızı kullanabilirsiniz:",
+      "browser": {
+        "title": "Tarayıcı Ayarları:",
+        "chrome": "Chrome > Ayarlar > Gizlilik ve güvenlik > Çerezler",
+        "firefox": "Firefox > Ayarlar > Gizlilik ve güvenlik",
+        "safari": "Safari > Tercihler > Gizlilik",
+        "edge": "Edge > Ayarlar > Çerezler ve site izinleri"
+      },
+      "warning": "Çerezleri devre dışı bırakmanız durumunda web sitesinin bazı özellikleri düzgün çalışmayabilir."
+    },
+    "retention": {
+      "title": "Çerez Saklama Süreleri",
+      "content": "Çerezlerin saklama süreleri türlerine göre değişir:",
+      "session": {
+        "title": "Oturum Çerezleri",
+        "duration": "Tarayıcı kapatılana kadar"
+      },
+      "persistent": {
+        "title": "Kalıcı Çerezler",
+        "duration": "30 gün - 2 yıl arası"
+      },
+      "analytics": {
+        "title": "Analitik Çerezler",
+        "duration": "26 ay"
+      },
+      "marketing": {
+        "title": "Pazarlama Çerezleri",
+        "duration": "13 ay"
+      }
+    },
+    "consent": {
+      "title": "Çerez Onayı",
+      "content": "Çerez kullanımına onay vermek için:",
+      "continuing": "Web sitesini kullanmaya devam ederek çerez kullanımını kabul edersiniz",
+      "banner": "Çerez bildirimindeki kabul butonunu tıklayabilirsiniz",
+      "settings": "Çerez ayarlarından tercihlerinizi belirleyebilirsiniz",
+      "withdraw": "Onayınızı istediğiniz zaman geri çekebilirsiniz"
+    },
+    "updates": {
+      "title": "Politika Güncellemeleri",
+      "content": "Bu çerez politikasını zaman zaman güncelleyebiliriz. Değişiklikler web sitesinde yayınlandığı tarihte yürürlüğe girer."
+    },
+    "contact": {
+      "title": "İletişim",
+      "content": "Çerez politikamız hakkında sorularınız için:"
+    }
   }
 }

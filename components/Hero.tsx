@@ -21,8 +21,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+          backgroundImage: "url('/villas/berceste/16.jpeg')",
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
       >

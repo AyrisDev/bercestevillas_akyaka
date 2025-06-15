@@ -12,18 +12,18 @@ export default async function VillasPage({
   const { locale } = await params;
   const villas = await prisma.villa.findMany({
     include: {
-      content: true
+      content: true,
     },
     orderBy: {
-      createdAt: 'desc'
-    }
+      createdAt: "desc",
+    },
   });
 
   async function deleteVilla(villaId: number) {
     "use server";
     try {
       await prisma.villa.delete({
-        where: { id: villaId }
+        where: { id: villaId },
       });
       revalidatePath(`/${locale}/admin/villas`);
     } catch (error) {
@@ -36,7 +36,7 @@ export default async function VillasPage({
     <div>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Villalar</h1>
-        <Link 
+        <Link
           href={`/${locale}/admin/villas/new`}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
         >
@@ -75,9 +75,9 @@ export default async function VillasPage({
                 <tr key={villa.id}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <img 
-                        className="h-12 w-12 rounded-lg object-cover" 
-                        src={villa.mainImage} 
+                      <img
+                        className="h-12 w-12 rounded-lg object-cover"
+                        src={villa.mainImage}
                         alt={content.title}
                       />
                       <div className="ml-4">
@@ -91,8 +91,12 @@ export default async function VillasPage({
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{content.locationTitle}</div>
-                    <div className="text-sm text-gray-500">{villa.locationCity}</div>
+                    <div className="text-sm text-gray-900">
+                      {content.locationTitle}
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      {villa.locationCity}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
@@ -105,23 +109,25 @@ export default async function VillasPage({
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      villa.status === 'available' 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-red-100 text-red-800'
-                    }`}>
-                      {villa.status === 'available' ? 'Müsait' : 'Dolu'}
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                        villa.status === "available"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {villa.status === "available" ? "Müsait" : "Dolu"}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <Link 
+                    <Link
                       href={`/${locale}/admin/villas/${villa.id}/edit`}
                       className="text-blue-600 hover:text-blue-900 mr-4"
                     >
                       Düzenle
                     </Link>
-                    <VillaDeleteButton 
-                      villaId={villa.id} 
+                    <VillaDeleteButton
+                      villaId={villa.id}
                       onDelete={deleteVilla}
                     />
                   </td>

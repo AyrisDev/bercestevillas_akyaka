@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 import VillaGallery from "@/components/VillaGallery";
+import AmenityIcon from "@/components/AmenityIcon";
 import Hero from "@/components/Hero";
 import { prisma } from "@/lib/prisma";
 import { getLocalizedVilla } from "@/lib/villa-content";
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 
 // Villa verilerini veritabanından al
 const getVillaBySlug = async (slug: string) => {
@@ -12,8 +14,8 @@ const getVillaBySlug = async (slug: string) => {
     include: {
       content: true,
       nearbyPlaces: true,
-      reviews: true
-    }
+      reviews: true,
+    },
   });
 };
 
@@ -24,7 +26,89 @@ interface VillaDetailPageProps {
   }>;
 }
 
-export default async function VillaDetailPage({ params }: VillaDetailPageProps) {
+export async function generateMetadata({
+  params,
+}: VillaDetailPageProps): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const villaData = await getVillaBySlug(slug);
+  
+  if (!villaData) {
+    return {
+      title: "Villa Not Found",
+      description: "The requested villa could not be found.",
+    };
+  }
+
+  const villa = getLocalizedVilla(villaData, locale);
+  const t = await getTranslations({ locale, namespace: "villa" });
+  
+  const villaUrl = `https://berceste.com/${locale}/villa/${slug}`;
+  const mainImage = villaData.images && villaData.images.length > 0 
+    ? villaData.images[0] 
+    : "/og-image.jpg";
+
+  const amenitiesText = villa.amenities.slice(0, 5).join(", ");
+  const description = villa.shortDescription || villa.description;
+  
+  return {
+    title: villa.title,
+    description: `${description} ${t("amenities")}: ${amenitiesText}`,
+    keywords: [
+      villa.title,
+      villa.locationTitle,
+      villaData.locationCity,
+      ...villa.amenities.slice(0, 8),
+      locale === "en" ? "villa rental" : "villa kiralama",
+      locale === "en" ? "luxury accommodation" : "lüks konaklama",
+    ],
+    alternates: {
+      canonical: villaUrl,
+      languages: {
+        en: `https://berceste.com/en/villa/${slug}`,
+        tr: `https://berceste.com/tr/villa/${slug}`,
+      },
+    },
+    openGraph: {
+      title: villa.title,
+      description: description,
+      url: villaUrl,
+      type: "article",
+      locale: locale === "en" ? "en_US" : "tr_TR",
+      siteName: "Berceste",
+      images: [
+        {
+          url: mainImage,
+          width: 1200,
+          height: 630,
+          alt: villa.title,
+        },
+        ...(villaData.images?.slice(1, 4).map(img => ({
+          url: img,
+          width: 800,
+          height: 600,
+          alt: villa.title,
+        })) || []),
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: villa.title,
+      description: description,
+      images: [mainImage],
+    },
+    other: {
+      "property:price": `${villaData.pricePerNight} ${villaData.currency}`,
+      "property:guests": villaData.guests.toString(),
+      "property:bedrooms": villaData.bedrooms.toString(),
+      "property:bathrooms": villaData.bathrooms.toString(),
+      "property:location": villa.locationTitle,
+    },
+  };
+}
+
+export default async function VillaDetailPage({
+  params,
+}: VillaDetailPageProps) {
   const { slug, locale } = await params;
   const villaData = await getVillaBySlug(slug);
   const t = await getTranslations();
@@ -65,12 +149,14 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
 
             {/* Amenities */}
             <section className="bg-white p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-black mb-4">{t("villa.amenities")}</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <h2 className="text-2xl font-bold text-black mb-4">
+                {t("villa.amenities")}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {villa.amenities.map((amenity, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#24b6b6] rounded-full"></div>
-                    <span className="text-gray-700">{amenity}</span>
+                  <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <AmenityIcon amenity={amenity} className="text-[#24b6b6]" />
+                    <span className="text-gray-700 font-medium">{amenity}</span>
                   </div>
                 ))}
               </div>
@@ -78,12 +164,14 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
 
             {/* Features */}
             <section className="bg-white p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-black mb-4">{t("villa.features")}</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <h2 className="text-2xl font-bold text-black mb-4">
+                {t("villa.features")}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {villa.features.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#24b6b6] rounded-full"></div>
-                    <span className="text-gray-700">{feature}</span>
+                  <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <AmenityIcon amenity={feature} className="text-[#24b6b6]" />
+                    <span className="text-gray-700 font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -117,7 +205,9 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
           <div className="space-y-6">
             {/* Reviews */}
             <section className="bg-white p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-black mb-4">{t("villa.reviews")}</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">
+                {t("villa.reviews")}
+              </h2>
               <div className="space-y-4">
                 {villaData.reviews.map((review) => (
                   <div
@@ -156,24 +246,26 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
 
             {/* Villa Info */}
             <section className="bg-white p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">{t("villa.info")}</h3>
+              <h3 className="text-xl text-gray-600 font-bold mb-4">
+                {t("villa.info")}
+              </h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">{t("villa.guests")}</span>
-                  <span className="font-semibold">{villaData.guests} {t("villa.person")}</span>
+                  <span className="font-semibold text-gray-600">
+                    {villaData.guests} {t("villa.person")}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">{t("villa.bedrooms")}</span>
-                  <span className="font-semibold">{villaData.bedrooms} {t("villa.room")}</span>
+                  <span className="font-semibold text-gray-600">
+                    {villaData.bedrooms} {t("villa.room")}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">{t("villa.bathrooms")}</span>
-                  <span className="font-semibold">{villaData.bathrooms} {t("villa.bathroom")}</span>
-                </div>
-                <div className="flex justify-between border-t pt-3">
-                  <span className="text-gray-600">{t("villa.perNight")}</span>
-                  <span className="font-bold text-lg text-[#24b6b6]">
-                    {villaData.pricePerNight.toLocaleString()} {villaData.currency}
+                  <span className="font-semibold text-gray-600">
+                    {villaData.bathrooms} {t("villa.bathroom")}
                   </span>
                 </div>
               </div>
@@ -181,7 +273,9 @@ export default async function VillaDetailPage({ params }: VillaDetailPageProps) 
 
             {/* Contact/Booking */}
             <section className="bg-[#24b6b6] p-6 rounded-lg text-white">
-              <h3 className="text-xl font-bold mb-4">{t("villa.reservation")}</h3>
+              <h3 className="text-xl font-bold mb-4">
+                {t("villa.reservation")}
+              </h3>
               <button className="w-full bg-white text-[#24b6b6] font-semibold py-3 px-4 rounded hover:bg-gray-100 transition-colors">
                 {t("villa.contact")}
               </button>

@@ -168,9 +168,240 @@
     "address": "Bodrum Marina, Muğla, Turkey",
     "phone": "+90 252 123 45 67",
     "email": "info@berceste.com",
-    "copyright": "© 2024 Berceste. All rights reserved.",
+    "copyright": "© 2025 Berceste. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "cookies": "Cookie Policy"
+    "cookies": "Cookie Policy",
+    "developer": "Developer",
+    "developedBy": "developed by"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated",
+    "intro": {
+      "title": "Introduction",
+      "content": "This Privacy Policy explains how we, as Berceste, collect, use, protect and share your personal data."
+    },
+    "collection": {
+      "title": "Information We Collect",
+      "content": "We may collect the following information to provide our services:",
+      "personal": "Personal information (name, surname, email address, phone number)",
+      "contact": "Contact information",
+      "reservation": "Reservation and payment information",
+      "technical": "Technical data (IP address, browser type, device information)"
+    },
+    "usage": {
+      "title": "Use of Information",
+      "content": "We use the information we collect for the following purposes:",
+      "services": "To provide and improve our services",
+      "communication": "To communicate with you",
+      "improvement": "To improve our website and your experience",
+      "legal": "To fulfill our legal obligations"
+    },
+    "sharing": {
+      "title": "Information Sharing",
+      "content": "We do not share your personal information with third parties except for legal obligations."
+    },
+    "security": {
+      "title": "Security",
+      "content": "We take appropriate technical and organizational measures for the security of your personal data."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "content": "Under GDPR, you have the following rights:",
+      "access": "Right to access your personal data",
+      "correction": "Right to request correction of incorrect data",
+      "deletion": "Right to request deletion of your personal data",
+      "portability": "Data portability right"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "We use cookies on our website. For detailed information, you can review our Cookie Policy."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "For questions about our privacy policy, you can contact us:"
+    },
+    "changes": {
+      "title": "Changes",
+      "content": "We reserve the right to make changes to this privacy policy. Changes will take effect on the date they are published on the website."
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated",
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By using this website, you are deemed to have accepted the following terms of use."
+    },
+    "services": {
+      "title": "Our Services",
+      "content": "As Berceste, we provide the following services:",
+      "reservation": "Villa reservation service",
+      "information": "Villa and accommodation information",
+      "support": "Customer support services"
+    },
+    "user": {
+      "title": "User Responsibilities",
+      "content": "While using our website, you must comply with the following rules:",
+      "accurate": "Provide accurate and up-to-date information",
+      "lawful": "Not engage in illegal activities",
+      "respectful": "Be respectful to other users",
+      "security": "Protect your account security"
+    },
+    "reservations": {
+      "title": "Reservation Terms",
+      "content": "The following conditions apply to villa reservations:",
+      "policy": {
+        "title": "Reservation Policy:",
+        "confirmation": "Reservations are confirmed after approval",
+        "payment": "Payment terms are specified during reservation",
+        "cancellation": "Cancellation terms are detailed below",
+        "checkin": "Check-in and check-out times may vary by villa"
+      }
+    },
+    "payment": {
+      "title": "Payment Terms",
+      "content": "Payment-related terms:",
+      "methods": "Accepted payment methods are specified during reservation",
+      "currency": "Prices are in Turkish Lira",
+      "taxes": "Taxes are included in prices",
+      "refunds": "Refund conditions are subject to cancellation policy"
+    },
+    "cancellation": {
+      "title": "Cancellation Policy",
+      "content": "The following conditions apply for reservation cancellation:",
+      "before30": "Up to 30 days before: 100% refund",
+      "before15": "15-30 days: 50% refund",
+      "before7": "7-15 days: 25% refund",
+      "after7": "Less than 7 days: No refund"
+    },
+    "property": {
+      "title": "Property Usage Rules",
+      "content": "The following rules must be followed during villa use:",
+      "respect": "Be respectful to property and environment",
+      "damage": "Report any damage",
+      "rules": "Follow villa-specific rules",
+      "capacity": "Do not exceed specified capacity limits"
+    },
+    "liability": {
+      "title": "Liability Limitation",
+      "content": "Berceste is not responsible for service interruptions, data loss or indirect damages."
+    },
+    "intellectual": {
+      "title": "Intellectual Property",
+      "content": "All content and images on the website are the intellectual property of Berceste."
+    },
+    "termination": {
+      "title": "Service Termination",
+      "content": "Berceste reserves the right to terminate service in case of violation of terms of use."
+    },
+    "governing": {
+      "title": "Governing Law",
+      "content": "These terms are subject to the laws of the Republic of Turkey."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "For questions about terms of use:"
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated",
+    "intro": {
+      "title": "About Cookies",
+      "content": "This policy explains how cookies are used on our website."
+    },
+    "what": {
+      "title": "What is a Cookie?",
+      "content": "Cookies are small text files stored on your device when you visit a website."
+    },
+    "types": {
+      "title": "Types of Cookies",
+      "essential": {
+        "title": "Essential Cookies",
+        "content": "Cookies necessary for the website to function:",
+        "session": "Session cookies",
+        "security": "Security cookies",
+        "preferences": "Preference cookies"
+      },
+      "performance": {
+        "title": "Performance Cookies",
+        "content": "Used to measure website performance:",
+        "analytics": "Analytics data",
+        "usage": "Usage statistics",
+        "optimization": "Site optimization"
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "content": "Provides advanced features:",
+        "language": "Language preferences",
+        "remember": "Remember your preferences",
+        "personalization": "Personalization"
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "content": "Used for advertising and marketing:",
+        "tracking": "User tracking",
+        "advertising": "Targeted advertising",
+        "social": "Social media integration"
+      }
+    },
+    "thirdparty": {
+      "title": "Third Party Cookies",
+      "content": "We use cookies from the following third-party services:",
+      "analytics": "For website analytics",
+      "maps": "For map services",
+      "facebook": "For social media and advertising",
+      "whatsapp": "For contact widget"
+    },
+    "manage": {
+      "title": "Cookie Management",
+      "content": "You can use your browser settings to manage cookies:",
+      "browser": {
+        "title": "Browser Settings:",
+        "chrome": "Chrome > Settings > Privacy and security > Cookies",
+        "firefox": "Firefox > Settings > Privacy and security",
+        "safari": "Safari > Preferences > Privacy",
+        "edge": "Edge > Settings > Cookies and site permissions"
+      },
+      "warning": "If you disable cookies, some features of the website may not work properly."
+    },
+    "retention": {
+      "title": "Cookie Retention Periods",
+      "content": "Cookie retention periods vary by type:",
+      "session": {
+        "title": "Session Cookies",
+        "duration": "Until browser is closed"
+      },
+      "persistent": {
+        "title": "Persistent Cookies",
+        "duration": "30 days - 2 years"
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "duration": "26 months"
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "duration": "13 months"
+      }
+    },
+    "consent": {
+      "title": "Cookie Consent",
+      "content": "To consent to cookie use:",
+      "continuing": "By continuing to use the website, you accept cookie usage",
+      "banner": "You can click the accept button in the cookie notification",
+      "settings": "You can set your preferences from cookie settings",
+      "withdraw": "You can withdraw your consent at any time"
+    },
+    "updates": {
+      "title": "Policy Updates",
+      "content": "We may update this cookie policy from time to time. Changes will take effect on the date they are published on the website."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "For questions about our cookie policy:"
+    }
   }
 }

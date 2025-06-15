@@ -16,7 +16,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [villas, setVillas] = useState<Villa[]>([]);
   const params = useParams();
-  const locale = params.locale as string || 'tr';
+  const locale = (params.locale as string) || "tr";
   const t = useTranslations();
 
   useEffect(() => {
@@ -25,13 +25,13 @@ export default function Navbar() {
 
   const fetchVillas = async () => {
     try {
-      const response = await fetch('/api/admin/villas/list');
+      const response = await fetch("/api/admin/villas/list");
       if (response.ok) {
         const data = await response.json();
         setVillas(data);
       }
     } catch (error) {
-      console.error('Failed to fetch villas:', error);
+      console.error("Failed to fetch villas:", error);
     }
   };
 
